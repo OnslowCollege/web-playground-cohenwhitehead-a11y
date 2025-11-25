@@ -1,0 +1,162 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Outdoor Adventures</title>
+
+<style>
+/* ------ GENERAL STYLE ------ */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(120deg, #0f172a, #1e3a8a, #0f172a);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: white;
+    line-height: 1.6;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+/* Gradient Animation */
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* Page Title */
+h1 {
+    text-align: center;
+    margin: 40px auto;
+    font-size: 40px;
+    opacity: 0;
+    animation: bounceIn 1s forwards;
+}
+
+/* Bouncing text */
+@keyframes bounceIn {
+    0% { transform: scale(0.5) translateY(-50px); opacity: 0; }
+    60% { transform: scale(1.1) translateY(10px); opacity: 1; }
+    100% { transform: scale(1) translateY(0); }
+}
+
+/* ------- CONTENT SECTIONS ------- */
+.section {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 50px auto;
+    gap: 20px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease;
+}
+
+.section.reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Left and Right sliding text */
+.slide-left {
+    flex: 1;
+    min-width: 300px;
+    background: rgba(255,255,255,0.08);
+    padding: 25px;
+    border-radius: 14px;
+    animation: slideLeft 1s forwards;
+}
+
+.slide-right {
+    flex: 1;
+    min-width: 300px;
+    background: rgba(255,255,255,0.08);
+    padding: 25px;
+    border-radius: 14px;
+    animation: slideRight 1s forwards;
+}
+
+/* Slide animations */
+@keyframes slideLeft {
+    from { opacity: 0; transform: translateX(-100px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideRight {
+    from { opacity: 0; transform: translateX(100px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* Images with rotation hover */
+.section img {
+    width: 100%;
+    border-radius: 14px;
+    object-fit: cover;
+    transition: transform 0.8s ease, box-shadow 0.5s ease;
+}
+
+.section img:hover {
+    transform: rotate(5deg) scale(1.05);
+    box-shadow: 0 0 30px rgba(255,255,255,0.4);
+}
+
+/* Mobile adjustments */
+@media(max-width: 700px){
+    h1 { font-size: 32px; }
+    .section { flex-direction: column; }
+}
+</style>
+</head>
+
+<body>
+
+<h1>Outdoor Adventures</h1>
+
+<div class="section">
+    <div class="slide-left">
+        <h2>Explore Nature</h2>
+        <p>Walking in the forest, hiking up hills, or just sitting near a lake can recharge your mind and body. Nature teaches patience and gives perspective.</p>
+    </div>
+    <div class="slide-right">
+        <img src="images/forest.jpg" alt="Forest Scene">
+    </div>
+</div>
+
+<div class="section">
+    <div class="slide-left">
+        <img src="images/lake.jpg" alt="Lake View">
+    </div>
+    <div class="slide-right">
+        <h2>Adventure Sports</h2>
+        <p>From kayaking to mountain biking, engaging in adventure sports can increase confidence, improve fitness, and give unforgettable experiences.</p>
+    </div>
+</div>
+
+<div class="section">
+    <div class="slide-left">
+        <h2>Meet New People</h2>
+        <p>Outdoor activities are perfect for socializing. You can make friends who share your hobbies and even find a mentor to guide you in new pursuits.</p>
+    </div>
+    <div class="slide-right">
+        <img src="images/group.jpg" alt="Group Outdoor">
+    </div>
+</div>
+
+<script>
+/* ------ Reveal sections on scroll ------ */
+const sections = document.querySelectorAll('.section');
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add('reveal');
+        }
+    });
+}, { threshold: 0.2 });
+
+sections.forEach(section => observer.observe(section));
+</script>
+
+</body>
+</html>
