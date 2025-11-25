@@ -1,24 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>My Website</title>
-        <link rel="stylesheet" href="main.css">
-        <link rel="icon" href="./favicon.ico" type="image/x-icon">
-    </head>
-    <body>
-        <main>
-            <h1>why you should go outside more</h1>
-        </main>
-        <script src="index.js"></script>
-    </body>
-</html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Why You Should Go Outside</title>
 
-<!DOCTYPE html><html><head></head><body><p style="background-color:dark grey; font-size:30px; font-family: Arial, Helvetica, sans-serif;">You should make an effort to go outside more often, because in the world beyond your walls, you can discover exciting new hobbies, uncover interests you never knew you had, meet new people, explore fresh experiences, and find joy in activities that truly make you happy.</p></body></html>
-<p>reason one.      
-    Its good to go outside and playing in the sun becuase it good to find somethinng fun to do at a young age.it aslo nice to not stay inside all day.</p>
-<p>reason 2. By going outside, you can also discover new opportunities to make money while you’re young, because exploring the world around you can teach you skills, spark ideas, and help you notice things you’d never learn by staying inside..</p>
-<p>reason 3 Fresh air and sunlight boost your mood and give you more energy because being outside helps your body wake up, relax, and feel more positive. Sunlight increases your vitamin D levels, which supports your health, and fresh air helps you clear your mind so you feel more refreshed and ready for the day.</p>
-<!DOCTYPE html><html lang="en"><head><meta charset="utf-8"/><meta name="viewport" content="width=device-width,initial-scale=1"/><title>Photo Showcase — Single File</title><style>:root{--bg:#0f172a;--card:#0b1220;--accent:#7dd3fc;--glass:rgba(255,255,255,0.06);--radius:16px;--maxw:1000px;--gap:18px}*{box-sizing:border-box}html,body{height:100%}body{margin:0;font-family:Inter,system-ui,-apple-system,'Segoe UI',Roboto,'Helvetica Neue',Arial;background:linear-gradient(180deg,#071028 0%,#071021 60%);color:#e6eef8;display:flex;align-items:center;justify-content:center;padding:40px 20px}.container{width:100%;max-width:var(--maxw);display:grid;grid-template-columns:1fr 360px;gap:var(--gap);align-items:start}.photo-card{background:linear-gradient(180deg,rgba(255,255,255,0.02),rgba(255,255,255,0.01));border-radius:var(--radius);padding:22px;box-shadow:0 8px 30px rgba(2,6,23,0.6);display:flex;flex-direction:column;gap:14px;min-height:360px}.hero{position:relative;border-radius:12px;overflow:hidden;background:var(--glass);display:flex;align-items:center;justify-content:center;min-height:300px}.hero img{width:100%;height:100%;object-fit:cover;transform-origin:center center;transition:transform 400ms cubic-bezier(.2,.9,.2,1),filter 300ms;display:block}.hero:hover img{transform:scale(1.06);filter:brightness(1.02) saturate(1.03)}.caption{margin-top:8px;display:flex;justify-content:space-between;align-items:center;gap:8px;font-size:14px;color:#bfe8ff}.caption .title{font-weight:600}.caption .meta{opacity:0.8;font-size:13px}.controls{display:flex;gap:10px;align-items:center}.btn{background:transparent;border:1px solid rgba(255,255,255,0.08);padding:8px 12px;border-radius:10px;cursor:pointer;color:inherit;font-weight:600;transition:transform 150ms,background 150ms}.btn:active{transform:translateY(1px)}.btn.primary{background:linear-gradient(90deg,var(--accent),#60a5fa);color:#04233b;border:none}.panel{background:linear-gradient(180deg,rgba(255,255,255,0.015),rgba(255,255,255,0.01));border-radius:var(--radius);padding:18px;min-height:200px;display:flex;flex-direction:column;gap:12px}label.file-drop{display:block;border:2px dashed rgba(255,255,255,0.04);border-radius:12px;padding:12px;text-align:center;cursor:pointer;font-size:14px;color:#bcdcff}input[type=file]{display:none}.thumb{width:100%;height:140px;border-radius:10px;overflow:hidden;background:linear-gradient(180deg,#0b1220,#071028);display:flex;align-items:center;justify-content:center;color:#9fbfe6;font-size:13px}.meta-row{display:flex;justify-content:space-between;font-size:13px;color:#cde9ff;opacity:0.9}.download-link{display:inline-block;text-decoration:none;padding:8px 10px;border-radius:10px;border:1px solid rgba(255,255,255,0.06)}@media (max-width:940px){.container{grid-template-columns:1fr}.panel{order:2}}</style></head><body><div class="container"><main class="photo-card"><div class="hero" id="hero"><img id="mainPhoto" src="./images/your-photo.jpg" alt="Your photo"></div><div class="caption"><div><div class="title" id="photoTitle">My Photo Title</div><div class="meta" id="photoMeta">Taken: Unknown • 4000×3000</div></div><div class="controls"><button class="btn" id="zoomBtn">Open</button><a id="downloadBtn" class="download-link" download>Download</a></div></div><p style="opacity:0.85;line-height:1.45;font-size:14px;margin:0">Short description about this photo. Use this area to credit the photographer or add a location and mood. This template works offline — you can replace the image file locally and keep everything in one folder.</p></main><aside class="panel"><div style="font-weight:700">Upload or preview</div><label class="file-drop" for="imgInput">Click to choose a file (PNG, JPG) or drag a file here</label><input type="file" id="imgInput" accept="image/*"><div class="thumb" id="thumb">Preview will appear here</div><div class="meta-row"><div>Size</div><div id="sizeTxt">—</div></div><div class="meta-row"><div>Dimensions</div><div id="dimsTxt">—</div></div><div style="margin-top:8px;display:flex;gap:8px"><button class="btn" id="resetBtn">Reset</button><button class="btn primary" id="applyBtn">Use as Main Photo</button></div><small style="opacity:0.8">Tip: To host this on the web, put the HTML file and an images/ folder together and replace <code>./images/your-photo.jpg</code> with your image path.</small></aside></div><script>const imgInput=document.getElementById('imgInput'),thumb=document.getElementById('thumb'),mainPhoto=document.getElementById('mainPhoto'),sizeTxt=document.getElementById('sizeTxt'),dimsTxt=document.getElementById('dimsTxt'),applyBtn=document.getElementById('applyBtn'),resetBtn=document.getElementById('resetBtn'),downloadBtn=document.getElementById('downloadBtn'),photoTitle=document.getElementById('photoTitle'),photoMeta=document.getElementById('photoMeta');let previewURL=null;imgInput.addEventListener('change',(e)=>{const file=e.target.files[0];if(!file) return; if(previewURL) URL.revokeObjectURL(previewURL); previewURL=URL.createObjectURL(file); const img=new Image(); img.src=previewURL; img.onload=()=>{thumb.innerHTML=''; img.style.width='100%'; img.style.height='100%'; img.style.objectFit='cover'; thumb.appendChild(img); sizeTxt.textContent=Math.round(file.size/1024)+' KB'; dimsTxt.textContent=img.naturalWidth+'×'+img.naturalHeight; downloadBtn.href=previewURL; downloadBtn.download=file.name||'photo'; photoMeta.textContent='Preview • '+img.naturalWidth+'×'+img.naturalHeight;}});applyBtn.addEventListener('click',()=>{if(!previewURL) return alert('Choose a photo first'); mainPhoto.src=previewURL; photoTitle.textContent='Custom Preview Photo'; downloadBtn.href=previewURL});resetBtn.addEventListener('click',()=>{mainPhoto.src='./images/your-photo.jpg'; thumb.innerHTML='Preview will appear here'; sizeTxt.textContent='—'; dimsTxt.textContent='—'; photoTitle.textContent='My Photo Title'; photoMeta.textContent='Taken: Unknown • 4000×3000'; if(previewURL){URL.revokeObjectURL(previewURL); previewURL=null;} downloadBtn.href='./images/your-photo.jpg'; downloadBtn.removeAttribute('download'); imgInput.value=''});document.getElementById('zoomBtn').addEventListener('click',()=>{window.open(mainPhoto.src,'_blank')});const label=document.querySelector('.file-drop');['dragenter','dragover','dragleave','drop'].forEach(ev=>{label.addEventListener(ev,e=>{e.preventDefault();e.stopPropagation();});});label.addEventListener('drop',(e)=>{const f=e.dataTransfer.files&&e.dataTransfer.files[0];if(f){imgInput.files=e.dataTransfer.files;const changeEvent=new Event('change');imgInput.dispatchEvent(changeEvent);}});</script></body></html>
+<style>
+/* ------- GENERAL STYLE ------- */
+body {
+    margin: 0;
+    font-family: Arial, Helvetica, sans-serif;
+    background: #0f172a;
+    color: white;
+    line-height: 1.6;
+    padding-bottom: 80px;
+}
+
+h1 {
+    text-align: center;
+    margin-top: 40px;
+    font-size: 40px;
+}
+
+/* ------- TEXT SECTION ------- */
+.text-box {
+    max-width: 900px;
+    margin: auto;
+    background: rgba(255,255,255,0.07);
+    padding: 25px;
+    border-radius: 14px;
+    margin-bottom: 40px;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+.text-box p {
+    font-size: 18px;
+    margin-bottom: 18px;
+}
+
+/* ------- PHOTO SECTION ------- */
+.container {
