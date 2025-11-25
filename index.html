@@ -14,60 +14,64 @@ body {
     color: white;
     line-height: 1.6;
     padding-bottom: 80px;
-
-    /* Fade-in when page loads */
-    opacity: 0;
-    animation: fadeIn 1.2s ease forwards;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
 }
 
-/* fade-in page animation */
-@keyframes fadeIn {
-    to { opacity: 1; }
+/* -------- PARALLAX BACKGROUND -------- */
+body::before {
+    content: "";
+    position: fixed;
+    top: 0; left: 0;
+    width: 100%; height: 100%;
+    background: url("https://images.unsplash.com/photo-1469474968028-56623f02e42e?auto=format&fit=crop&w=1400&q=60")
+        center/cover no-repeat;
+    z-index: -1;
+    opacity: 0.35;
+    transform: translateZ(-1px) scale(1.3);
 }
 
-h1 {
+/* ------- TYPING ANIMATION FOR TITLE ------- */
+#title {
+    width: 0;
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid white;
+    margin: 40px auto;
+    font-size: 42px;
     text-align: center;
-    margin-top: 40px;
-    font-size: 40px;
-    opacity: 0;
-    animation: slideUp 1.2s ease forwards;
-    animation-delay: 0.3s;
+    animation: typing 3s steps(40, end) forwards, blink 0.7s infinite;
+}
+@keyframes typing {
+    from { width: 0; }
+    to { width: 100%; }
+}
+@keyframes blink {
+    50% { border-color: transparent; }
 }
 
-/* slide-up animation for sections */
-@keyframes slideUp {
-    0% { opacity: 0; transform: translateY(25px); }
-    100% { opacity: 1; transform: translateY(0); }
-}
-
-/* ------- TEXT SECTION ------- */
+/* ------- TEXT BOX ------- */
 .text-box {
     max-width: 900px;
     margin: auto;
-    background: rgba(255,255,255,0.07);
+    background: rgba(255,255,255,0.08);
     padding: 25px;
     border-radius: 14px;
     margin-bottom: 40px;
-    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    backdrop-filter: blur(6px);
+    box-shadow: 0 0 25px rgba(255,255,255,0.15);
 
     opacity: 0;
-    animation: slideUp 1.2s ease forwards;
-    animation-delay: 0.6s;
+    transform: translateY(40px);
+    transition: all 1.2s ease;
 }
 
+/* each paragraph fade + slide */
 .text-box p {
-    font-size: 18px;
-    margin-bottom: 18px;
-
-    /* each paragraph reveals one after another */
     opacity: 0;
-    animation: slideUp 1s ease forwards;
+    transform: translateY(20px);
+    transition: 0.9s ease;
 }
-
-.text-box p:nth-child(1) { animation-delay: 0.8s; }
-.text-box p:nth-child(2) { animation-delay: 1.0s; }
-.text-box p:nth-child(3) { animation-delay: 1.2s; }
-.text-box p:nth-child(4) { animation-delay: 1.4s; }
 
 /* ------- PHOTO SECTION ------- */
 .container {
@@ -83,48 +87,49 @@ h1 {
     background: rgba(255,255,255,0.05);
     padding: 20px;
     border-radius: 14px;
+    backdrop-filter: blur(4px);
 
     opacity: 0;
-    animation: fadeUp 1.3s ease forwards;
-    animation-delay: 1.7s;
-}
-
-/* softer fade + slide */
-@keyframes fadeUp {
-    0% { opacity: 0; transform: translateY(40px); }
-    100% { opacity: 1; transform: translateY(0); }
+    transform: translateY(50px);
+    transition: 1.3s ease;
 }
 
 .hero img {
     width: 100%;
     border-radius: 14px;
     object-fit: cover;
-
-    /* zoom on hover */
     transition: transform 0.5s ease, box-shadow 0.5s ease;
 }
 
+/* zoom + glowing border */
 .hero img:hover {
-    transform: scale(1.05);
-    box-shadow: 0 0 25px rgba(255,255,255,0.3);
+    transform: scale(1.07);
+    box-shadow: 0 0 30px rgba(255,255,255,0.4);
 }
 
+/* fading text under photos */
 .photo-card p {
     opacity: 0;
-    animation: slideUp 1s ease forwards;
-    animation-delay: 2.1s;
+    transform: translateY(20px);
+    transition: 1s ease;
+}
+
+/* ------- SCROLL FADE-IN CLASS ------- */
+.reveal {
+    opacity: 1 !important;
+    transform: translateY(0) !important;
 }
 
 /* mobile */
 @media(max-width: 700px){
-    h1 { font-size: 32px; }
+    #title { font-size: 32px; }
 }
 </style>
 </head>
 
 <body>
 
-<h1>Why You Should Go Outside More</h1>
+<h1 id="title">Why You Should Go Outside More</h1>
 
 <div class="text-box">
     <p>You should make an effort to go outside more often, because in the world beyond your walls, you can discover exciting new hobbies, uncover interests you never knew you had, meet new people, explore fresh experiences, and find joy in activities that truly make you happy.</p>
@@ -139,13 +144,12 @@ h1 {
     Fresh air and sunlight boost your mood and give you more energy. Sunlight increases your vitamin D levels, which supports your health, and fresh air helps you clear your mind so you feel more refreshed and ready for the day.</p>
 </div>
 
-<!-- ------- PHOTO SECTION WITH YOUR IMAGES ------- -->
 <div class="container">
     <div class="photo-card">
         <div class="hero">
             <img src="images/6d5799ac-318a-4e80-9d13-d51d249c872b 2.JPG">
 
-            <p style="margin-top:12px; font-size:17px; opacity:0.95;">
+            <p style="margin-top:12px; font-size:17px;">
                 I woke up at 6:30 to go outside and make the most of the life I have, because it feels good to get out, breathe fresh air, and enjoy the world instead of staying inside all day.
             </p>
 
@@ -157,6 +161,21 @@ h1 {
         </p>
     </div>
 </div>
+
+<script>
+/* ------ Reveal on Scroll (FADE + SLIDE) ------ */
+const reveals = document.querySelectorAll('.text-box, .text-box p, .photo-card, .photo-card p');
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('reveal');
+        }
+    });
+}, { threshold: 0.2 });
+
+reveals.forEach(el => observer.observe(el));
+</script>
 
 </body>
 </html>
