@@ -14,12 +14,30 @@ body {
     color: white;
     line-height: 1.6;
     padding-bottom: 80px;
+
+    /* Fade-in when page loads */
+    opacity: 0;
+    animation: fadeIn 1.2s ease forwards;
+}
+
+/* fade-in page animation */
+@keyframes fadeIn {
+    to { opacity: 1; }
 }
 
 h1 {
     text-align: center;
     margin-top: 40px;
     font-size: 40px;
+    opacity: 0;
+    animation: slideUp 1.2s ease forwards;
+    animation-delay: 0.3s;
+}
+
+/* slide-up animation for sections */
+@keyframes slideUp {
+    0% { opacity: 0; transform: translateY(25px); }
+    100% { opacity: 1; transform: translateY(0); }
 }
 
 /* ------- TEXT SECTION ------- */
@@ -31,12 +49,25 @@ h1 {
     border-radius: 14px;
     margin-bottom: 40px;
     box-shadow: 0 0 20px rgba(0,0,0,0.3);
+
+    opacity: 0;
+    animation: slideUp 1.2s ease forwards;
+    animation-delay: 0.6s;
 }
 
 .text-box p {
     font-size: 18px;
     margin-bottom: 18px;
+
+    /* each paragraph reveals one after another */
+    opacity: 0;
+    animation: slideUp 1s ease forwards;
 }
+
+.text-box p:nth-child(1) { animation-delay: 0.8s; }
+.text-box p:nth-child(2) { animation-delay: 1.0s; }
+.text-box p:nth-child(3) { animation-delay: 1.2s; }
+.text-box p:nth-child(4) { animation-delay: 1.4s; }
 
 /* ------- PHOTO SECTION ------- */
 .container {
@@ -52,12 +83,36 @@ h1 {
     background: rgba(255,255,255,0.05);
     padding: 20px;
     border-radius: 14px;
+
+    opacity: 0;
+    animation: fadeUp 1.3s ease forwards;
+    animation-delay: 1.7s;
+}
+
+/* softer fade + slide */
+@keyframes fadeUp {
+    0% { opacity: 0; transform: translateY(40px); }
+    100% { opacity: 1; transform: translateY(0); }
 }
 
 .hero img {
     width: 100%;
     border-radius: 14px;
     object-fit: cover;
+
+    /* zoom on hover */
+    transition: transform 0.5s ease, box-shadow 0.5s ease;
+}
+
+.hero img:hover {
+    transform: scale(1.05);
+    box-shadow: 0 0 25px rgba(255,255,255,0.3);
+}
+
+.photo-card p {
+    opacity: 0;
+    animation: slideUp 1s ease forwards;
+    animation-delay: 2.1s;
 }
 
 /* mobile */
@@ -65,8 +120,8 @@ h1 {
     h1 { font-size: 32px; }
 }
 </style>
-
 </head>
+
 <body>
 
 <h1>Why You Should Go Outside More</h1>
@@ -84,17 +139,21 @@ h1 {
     Fresh air and sunlight boost your mood and give you more energy. Sunlight increases your vitamin D levels, which supports your health, and fresh air helps you clear your mind so you feel more refreshed and ready for the day.</p>
 </div>
 
-<!-- ------- PHOTO SECTION WITH YOUR IMAGE ------- -->
+<!-- ------- PHOTO SECTION WITH YOUR IMAGES ------- -->
 <div class="container">
     <div class="photo-card">
         <div class="hero">
             <img src="images/6d5799ac-318a-4e80-9d13-d51d249c872b 2.JPG">
-            <p>I woke up at 6:30 to go outside and make the most of the life I have, because it feels good to get out, breathe fresh air, and enjoy the world instead of staying inside all day.</p>
+
+            <p style="margin-top:12px; font-size:17px; opacity:0.95;">
+                I woke up at 6:30 to go outside and make the most of the life I have, because it feels good to get out, breathe fresh air, and enjoy the world instead of staying inside all day.
+            </p>
 
             <img src="images/31ab3f20-ef1d-4b72-a426-408bf947c4f1 2.JPG">
         </div>
+
         <p style="opacity:0.9; font-size:16px; margin-top:14px;">
-            A peaceful outdoor scene — perfect example of why going outside is good for the mind and soul.
+            A peaceful outdoor scene — a perfect example of why going outside is good for the mind and soul.
         </p>
     </div>
 </div>
