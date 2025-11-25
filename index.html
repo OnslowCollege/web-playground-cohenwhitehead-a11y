@@ -40,3 +40,61 @@ h1 {
 
 /* ------- PHOTO SECTION ------- */
 .container {
+    width: 100%;
+    max-width: 1000px;
+    margin: auto;
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 20px;
+}
+
+.photo-card {
+    background: rgba(255,255,255,0.05);
+    padding: 20px;
+    border-radius: 14px;
+}
+
+.hero img {
+    width: 100%;
+    border-radius: 14px;
+    object-fit: cover;
+}
+
+/* mobile */
+@media(max-width: 700px){
+    h1 { font-size: 32px; }
+}
+</style>
+
+</head>
+<body>
+
+<h1>Why You Should Go Outside More</h1>
+
+<div class="text-box">
+    <p>You should make an effort to go outside more often, because in the world beyond your walls, you can discover exciting new hobbies, uncover interests you never knew you had, meet new people, explore fresh experiences, and find joy in activities that truly make you happy.</p>
+
+    <p><strong>Reason 1:</strong>  
+    It’s good to go outside and play in the sun because it’s great to find something fun to do at a young age. It’s also nice not to stay inside all day.</p>
+
+    <p><strong>Reason 2:</strong>  
+    By going outside, you can also discover new opportunities to make money while you’re young, because exploring the world around you can teach you skills, spark ideas, and help you notice things you’d never learn by staying inside.</p>
+
+    <p><strong>Reason 3:</strong>  
+    Fresh air and sunlight boost your mood and give you more energy. Sunlight increases your vitamin D levels, which supports your health, and fresh air helps you clear your mind so you feel more refreshed and ready for the day.</p>
+</div>
+
+<!-- ------- PHOTO SECTION WITH YOUR IMAGE ------- -->
+<div class="container">
+    <div class="photo-card">
+        <div class="hero">
+            <img src="/mnt/data/eb4adf23-2a0b-40a3-a382-27d4c63ca3b6.png">
+        </div>
+        <p style="opacity:0.9; font-size:16px; margin-top:14px;">
+            A peaceful outdoor scene — perfect example of why going outside is good for the mind and soul.
+        </p>
+    </div>
+</div>
+
+</body>
+</html>
