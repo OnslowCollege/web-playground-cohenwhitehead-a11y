@@ -1,17 +1,173 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <meta http-equiv="X-UA-Compatible" content="ie=edge">
-        <title>My Website</title>
-        <link rel="stylesheet" href="./style.css">
-        <link rel="icon" href="./favicon.ico" type="image/x-icon">
-    </head>
-    <body>
-        <main>
-            <h1>why you should go outside more</h1>
-        </main>
-        <script src="index.js"></script>
-    </body>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Outdoor Fun Activities</title>
+
+<style>
+/* ------ GENERAL STYLE ------ */
+body {
+    margin: 0;
+    font-family: 'Arial', sans-serif;
+    background: linear-gradient(120deg, #0f172a, #1e3a8a, #0f172a);
+    background-size: 400% 400%;
+    animation: gradientBG 15s ease infinite;
+    color: white;
+    line-height: 1.6;
+    overflow-x: hidden;
+    scroll-behavior: smooth;
+}
+
+@keyframes gradientBG {
+    0% { background-position: 0% 50%; }
+    50% { background-position: 100% 50%; }
+    100% { background-position: 0% 50%; }
+}
+
+/* TITLE ANIMATION */
+h1 {
+    text-align: center;
+    margin: 40px auto;
+    font-size: 40px;
+    opacity: 0;
+    animation: bounceIn 1s forwards;
+}
+@keyframes bounceIn {
+    0% { transform: scale(0.5) translateY(-50px); opacity: 0; }
+    60% { transform: scale(1.1) translateY(10px); opacity: 1; }
+    100% { transform: scale(1) translateY(0); }
+}
+
+/* SECTIONS */
+.section {
+    display: flex;
+    flex-wrap: wrap;
+    max-width: 1000px;
+    margin: 50px auto;
+    gap: 20px;
+    opacity: 0;
+    transform: translateY(50px);
+    transition: all 1s ease;
+}
+.section.reveal {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Left and Right sliding text */
+.slide-left, .slide-right {
+    flex: 1;
+    min-width: 280px;
+    background: rgba(255,255,255,0.08);
+    padding: 25px;
+    border-radius: 14px;
+}
+.slide-left { animation: slideLeft 1s forwards; }
+.slide-right { animation: slideRight 1s forwards; }
+
+@keyframes slideLeft {
+    from { opacity: 0; transform: translateX(-100px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+@keyframes slideRight {
+    from { opacity: 0; transform: translateX(100px); }
+    to { opacity: 1; transform: translateX(0); }
+}
+
+/* IMAGES */
+.section img {
+    max-width: 90%;
+    max-height: 220px;
+    border-radius: 14px;
+    object-fit: cover;
+    display: block;
+    margin: 0 auto;
+    transition: transform 0.6s ease, box-shadow 0.5s ease;
+}
+.section img:hover {
+    transform: rotate(2deg) scale(1.05);
+    box-shadow: 0 0 25px rgba(255,255,255,0.4);
+}
+
+/* BUTTONS */
+.button-link {
+    display: inline-block;
+    padding: 12px 25px;
+    background: #1e3a8a;
+    color:white;
+    border-radius:10px;
+    text-decoration:none;
+    font-size:18px;
+    margin: 30px auto;
+    transition:0.3s;
+}
+.button-link:hover {
+    background: #3b59c2;
+    transform: scale(1.05);
+}
+
+/* MOBILE */
+@media(max-width: 700px){
+    h1 { font-size: 32px; }
+    .section { flex-direction: column; }
+    .section img { width: 100%; max-height: 180px; }
+}
+</style>
+</head>
+
+<body>
+
+<h1>Outdoor Fun Activities</h1>
+
+<div class="section">
+    <div class="slide-left">
+        <h2>Picnics in the Park</h2>
+        <p>Enjoying a picnic outside lets you relax, eat healthy snacks, and spend quality time with friends or family. Nature makes even a simple meal feel special.</p>
+    </div>
+    <div class="slide-right">
+        <img src="images/image copy 6.png" alt="Picnic Scene">
+    </div>
+</div>
+
+<div class="section">
+    <div class="slide-left">
+        <img src="images/image copy 5.png" alt="Camping Scene">
+    </div>
+    <div class="slide-right">
+        <h2>Camping Adventures</h2>
+        <p>Sleeping under the stars, telling stories by the campfire, and exploring trails gives you a sense of adventure and strengthens your bond with nature.</p>
+    </div>
+</div>
+
+<div class="section">
+    <div class="slide-left">
+        <h2>Outdoor Fitness</h2>
+        <p>Exercising outdoors is refreshing and more motivating. Jogging, yoga, or bodyweight exercises in the fresh air boost your energy and mood.</p>
+    </div>
+    <div class="slide-right">
+        <img src="images/image copy 4.png" alt="">
+    </div>
+</div>
+
+<!-- NAVIGATION BUTTONS -->
+<div style="text-align:center;">
+    <a href="index.html" class="button-link">Back to Home</a>
+    <a href="seconfile.html" class="button-link">Go to Outdoor Adventures</a>
+</div>
+
+<script>
+/* Reveal sections on scroll */
+const sections = document.querySelectorAll('.section');
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if(entry.isIntersecting){
+            entry.target.classList.add('reveal');
+        }
+    });
+}, { threshold: 0.2 });
+sections.forEach(section => observer.observe(section));
+</script>
+
+</body>
 </html>
